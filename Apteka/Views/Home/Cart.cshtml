@@ -1,0 +1,32 @@
+﻿@model List<Apteka.Data.UserProduct>
+
+@{
+    ViewData["Title"] = "Моя корзина";
+}
+
+
+<div class="row">
+    <h1>Товары в моей корзине:</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Count</th>
+            <th scope="col">Ation</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var userProduct in Model)
+        {
+            <tr>
+                <td>@userProduct.Product.Description</td>
+                <td>@userProduct.Product.Price</td>
+                <td>@userProduct.Count</td>
+                <td><a class="btn btn-default" href="/home/DeleteFromOrder?productId=@userProduct.Product.Id">Удалить</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>

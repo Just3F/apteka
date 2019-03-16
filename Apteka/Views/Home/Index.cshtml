@@ -1,0 +1,27 @@
+﻿@model List<Apteka.Data.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Ation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td><a class="btn btn-default" href="home/addtoorder?productId=@product.Id">Купить</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
